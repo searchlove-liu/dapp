@@ -1,3 +1,4 @@
+// 需要插件：@nomicfoundation/hardhat-toolbox-viem
 import { network } from "hardhat"
 
 const { viem } = await network.connect();

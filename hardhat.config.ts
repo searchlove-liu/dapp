@@ -1,7 +1,7 @@
 import type { HardhatUserConfig } from "hardhat/config";
 
-// import hardhatToolboxMochaEthers from "@nomicfoundation/hardhat-toolbox-mocha-ethers";
-import hardhatToolboxViem from "@nomicfoundation/hardhat-toolbox-viem";
+import hardhatToolboxMochaEthers from "@nomicfoundation/hardhat-toolbox-mocha-ethers";
+// import hardhatToolboxViem from "@nomicfoundation/hardhat-toolbox-viem";
 
 import { configVariable } from "hardhat/config";
 
@@ -14,7 +14,7 @@ const proxyAgent = new ProxyAgent("http://127.0.0.1:7890");
 setGlobalDispatcher(proxyAgent);
 
 const config: HardhatUserConfig = {
-  plugins: [hardhatToolboxViem],
+  plugins: [hardhatToolboxMochaEthers],
   solidity: {
     profiles: {
       default: {

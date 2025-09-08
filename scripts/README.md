@@ -42,3 +42,9 @@ npx hardhat run scripts/fundMeDp-viem.ts --network sepolia
 如果没有验证，可以使用：
 npx hardhat verify --network sepolia --build-profile default 0xxxxx  200
 200是智能合约构造函数的参数
+
+使用ethers部署合约，自动验证
+npx hardhat run scripts/fundMeDp-ethers.ts --network sepolia
+如果没有验证，可以使用：
+npx hardhat verify --network sepolia --build-profile default 0xxxxx  200
+200是智能合约构造函数的参数
