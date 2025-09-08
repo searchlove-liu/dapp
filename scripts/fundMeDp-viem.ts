@@ -2,9 +2,7 @@
 import { network } from "hardhat"
 
 const { viem } = await network.connect();
-
-const parameter: bigint = 200n;
-
-const FundMe = await viem.deployContract("FundMe", [parameter]);
+// 200n代表一个大整数
+const FundMe = await viem.deployContract("FundMe", [200n]);
 
 console.log("FundMe deployed to:", FundMe.address);

@@ -30,17 +30,26 @@ npx hardhat ignition deploy ignition/modules/xxx.ts
 
 使用hardhat scripts部署合约，无法验证（不知道为什么：需要关键字--build-profile default）
 npx hardhat run scripts/fundMeDp-hardhatScript.ts --network sepolia
+或：
+npx hardhat run --build-profile production .\scripts\fundMeDp-hardhatScript.ts --network sepolia
 如果没有验证，可以使用：
 npx hardhat verify --network sepolia --build-profile default 0xxxxx  200
+或：
+npx hardhat verify --network sepolia --build-profile production 0xxxxx  200
 200是智能合约构造函数的参数
 
 无法验证通过的原因：Using a different build profile. If you are using a different build profile than the one used for deployment, then the bytecode will be different, causing the verification to fail. Try using --build-profile with other profiles to verify your contract, beginning with default. You may also need to run hardhat build with the same build profile to generate the correct artifacts.
 参考：https://hardhat.org/docs/learn-more/smart-contract-verification
+https://hardhat.org/plugins/nomicfoundation-hardhat-verify#build-profiles-and-verification
 
 使用view部署合约，自动验证
 npx hardhat run scripts/fundMeDp-viem.ts --network sepolia
+或
+npx hardhat run --build-profile production scripts/fundMeDp-viem.ts --network sepolia
 如果没有验证，可以使用：
 npx hardhat verify --network sepolia --build-profile default 0xxxxx  200
+或
+npx hardhat verify --network sepolia --build-profile production 0xxxxx  200
 200是智能合约构造函数的参数
 
 使用ethers部署合约，自动验证

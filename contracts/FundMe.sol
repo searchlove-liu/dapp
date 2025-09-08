@@ -15,7 +15,7 @@ contract FundMe {
 
     AggregatorV3Interface internal dataFeed;
 
-    uint256 constant TARGET = 1000 * 10 ** 18;
+    uint256 constant TARGET = 1 * 10 ** 5;
 
     address public owner;
 
