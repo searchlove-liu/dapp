@@ -1,5 +1,15 @@
 参考：https://hardhat.org/ignition/docs/guides/ethers
 
+env-enc使用
+// 将敏感值存入.env-enc文件中
+// 需要安装包：npm install --save-dev dotenv
+// 这个包用于对.env文件中的数据加密:npm install --save-dev @chainlink/env-enc
+// 设置密码: npx env-enc set-pw
+// 设置具体值：npx env-enc set
+// import * as envEnc from "@chainlink/env-enc";
+// envEnc.config();
+// console.log("deployed contract address is %s \n", process.env.DEPLOYED_CONTRACT_ADDRESS);
+
 要重新上链一个合约，需要将原本生成的编译文件删除，然后重新部署
 
 在windows中安装vscode
@@ -19,6 +29,9 @@ ethers参考：https://docs.ethers.org/v6/api/contract/   中BaseContract的方�
 
 编译合约：
 npx hradhat compile
+
+使用keystore插件保存保密值
+npx hardhat keystore set xxx
  
 使用ignish部署合约，必须在ignish/modules文件夹中存放xx.ts文件
 部署合约：
@@ -28,8 +41,10 @@ npx hardhat ignition deploy ignition/modules/xxx.ts
  验证已部署合约：
  npx hardhat ignition verify chain-11155111 ----network sepolia
 
-使用hardhat scripts部署合约，无法验证（不知道为什么：需要关键字--build-profile default）
+使用hardhat scripts部署合约（无法验证原因：需要关键字--build-profile default）
 npx hardhat run scripts/fundMeDp-hardhatScript.ts --network sepolia
+或：
+npx hardhat run --build-profile default scripts/fundMeDp-hardhatScript.ts --network sepolia 
 或：
 npx hardhat run --build-profile production .\scripts\fundMeDp-hardhatScript.ts --network sepolia
 如果没有验证，可以使用：

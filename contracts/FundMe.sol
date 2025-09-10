@@ -11,6 +11,11 @@ import {AggregatorV3Interface} from "@chainlink/contracts/src/v0.8/shared/interf
 contract FundMe {
     mapping(address => uint256) public fundersToAmount;
 
+    // 发起者的地址，我这里假定为10，后期可以改为动态数组
+    address[] public funderAddress = new address[](10);
+    // 发起者的数目
+    uint64 public funderNumber = 0;
+
     uint256 constant MINIMUM_VALUE = 100 * 10 ** 18; //USD
 
     AggregatorV3Interface internal dataFeed;
@@ -20,7 +25,7 @@ contract FundMe {
     address public owner;
 
     uint256 deploymentTimestamp;
-    uint256 lockTime;
+    uint256 public lockTime;
 
     address erc20Addr;
 
@@ -42,7 +47,11 @@ contract FundMe {
             block.timestamp < deploymentTimestamp + lockTime,
             "window is closed"
         );
-        fundersToAmount[msg.sender] = msg.value;
+        if (fundersToAmount[msg.sender] == 0) {
+            funderAddress[funderNumber] = msg.sender;
+            funderNumber++;
+        }
+        fundersToAmount[msg.sender] += msg.value;
     }
 
     function getChainlinkDataFeedLatestAnswer() public view returns (int) {
@@ -71,7 +80,7 @@ contract FundMe {
     function getFund() external windowClosed onlyOwner {
         require(
             convertEthToUsd(address(this).balance) >= TARGET,
-            "Target is not reached"
+            "Target not reached"
         );
         // transfer: transfer ETH and revert if tx failed
         // payable(msg.sender).transfer(address(this).balance);
@@ -86,7 +95,9 @@ contract FundMe {
             ""
         );
         require(success, "transfer tx failed");
-        fundersToAmount[msg.sender] = 0;
+        for (uint64 i = 0; i < funderNumber; i++) {
+            fundersToAmount[funderAddress[i]] = 0;
+        }
         getFundSuccess = true; // flag
     }
 

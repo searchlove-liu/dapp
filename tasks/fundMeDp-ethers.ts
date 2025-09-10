@@ -8,7 +8,7 @@ import hre from "hardhat";
 
 const { ethers } = await network.connect();
 
-async function main() {
+const deployContractWithHardhat: NewTaskActionFunction<CompileActionArguments> = async function main() {
     const args = 1800n
     // 返回合约实例，ethers是一个合约工厂，1800n代表一个大整数
     const fundMe = await ethers.deployContract("FundMe", [args]);
@@ -55,9 +55,4 @@ async function verifyFundMe(deployedAddress: string, constructorArgs: bigint) {
         hre,
     );
 }
-
-main().then().catch((error) => {
-    console.error(error);
-    process.exit(0);
-})
 
