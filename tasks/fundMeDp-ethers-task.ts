@@ -6,9 +6,28 @@ import { verifyContract } from "@nomicfoundation/hardhat-verify/verify";
 
 import hre from "hardhat";
 
-const { ethers } = await network.connect();
+import type { NewTaskActionFunction } from 'hardhat/types/tasks';
 
-const deployContractWithHardhat: NewTaskActionFunction<CompileActionArguments> = async function main() {
+interface DeployContractArgs {
+    lockTime?: bigint;
+}
+
+// 验证合约
+async function verifyFundMe(deployedAddress: string, constructorArgs: bigint) {
+    verifyContract(
+        {
+            address: deployedAddress,
+            constructorArgs: [constructorArgs],
+            provider: "etherscan", // or "blockscout" for Blockscout-compatible explorers
+        },
+        hre,
+    );
+}
+
+// 部署合约
+const deployContractWithHardhat: NewTaskActionFunction<DeployContractArgs> = async () => {
+    const { ethers } = await network.connect();
+
     const args = 1800n
     // 返回合约实例，ethers是一个合约工厂，1800n代表一个大整数
     const fundMe = await ethers.deployContract("FundMe", [args]);
@@ -44,15 +63,7 @@ const deployContractWithHardhat: NewTaskActionFunction<CompileActionArguments> =
     }
 }
 
-// 验证合约
-async function verifyFundMe(deployedAddress: string, constructorArgs: bigint) {
-    verifyContract(
-        {
-            address: deployedAddress,
-            constructorArgs: [constructorArgs],
-            provider: "etherscan", // or "blockscout" for Blockscout-compatible explorers
-        },
-        hre,
-    );
-}
+export default deployContractWithHardhat;
+
+
 

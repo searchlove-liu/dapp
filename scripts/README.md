@@ -10,6 +10,10 @@ env-enc使用
 // envEnc.config();
 // console.log("deployed contract address is %s \n", process.env.DEPLOYED_CONTRACT_ADDRESS);
 
+ts，引入某个包中的某个类型：
+import type { NewTaskActionFunction } from 'hardhat/types/tasks';
+
+
 要重新上链一个合约，需要将原本生成的编译文件删除，然后重新部署
 
 在windows中安装vscode
