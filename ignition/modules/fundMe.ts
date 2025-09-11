@@ -1,8 +1,9 @@
 import { buildModule } from "@nomicfoundation/hardhat-ignition/modules";
 import hre from "hardhat";
+import { LOCK_TIME, DATAFEED_ADDR } from "./../../helper-hardhat-config.ts";
 
 export default buildModule("FundMeModuleOne", (m) => {
-  const fundMeFuture = m.contract("FundMe", [200]);
+  const fundMeFuture = m.contract("FundMe", [LOCK_TIME, DATAFEED_ADDR]);
   return { fundMeFuture };
 });
 

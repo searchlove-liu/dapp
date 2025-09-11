@@ -6,12 +6,14 @@ import { verifyContract } from "@nomicfoundation/hardhat-verify/verify";
 
 import hre from "hardhat";
 
+import { LOCK_TIME, DATAFEED_ADDR } from "./../helper-hardhat-config.ts"
+
 const { ethers } = await network.connect();
 
 async function main() {
     const args = 1800n
     // 返回合约实例，ethers是一个合约工厂，1800n代表一个大整数
-    const fundMe = await ethers.deployContract("FundMe", [args]);
+    const fundMe = await ethers.deployContract("FundMe", [LOCK_TIME, DATAFEED_ADDR]);
     // ethers.getContractFactory
     await fundMe.waitForDeployment();
     console.log("FundMe deployed to:", fundMe.target);
@@ -40,16 +42,16 @@ async function main() {
 
         // 验证合约(不需要，部署的时候就已经验证通过了)
         console.log("verifying FundMe contract ", fundMe.target);
-        await verifyFundMe(String(fundMe.target), args);
+        await verifyFundMe(String(fundMe.target), LOCK_TIME, DATAFEED_ADDR);
     }
 }
 
 // 验证合约
-async function verifyFundMe(deployedAddress: string, constructorArgs: bigint) {
+async function verifyFundMe(deployedAddress: string, lockTime: bigint, dataFeedAddr: string) {
     verifyContract(
         {
             address: deployedAddress,
-            constructorArgs: [constructorArgs],
+            constructorArgs: [lockTime, dataFeedAddr],
             provider: "etherscan", // or "blockscout" for Blockscout-compatible explorers
         },
         hre,

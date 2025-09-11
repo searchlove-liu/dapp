@@ -7,9 +7,6 @@ import { configVariable } from "hardhat/config";
 
 import hardhatVerify from "@nomicfoundation/hardhat-verify";
 
-// 插件hardhat deploy，为了更方便的测试。
-import "hardhat-deploy";
-
 // 为了解决：下列问题
 //  A network request failed. This is an error from the block explorer, 
 // not Hardhat. Error: Connect Timeout Error
