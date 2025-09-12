@@ -6,39 +6,33 @@ import { verifyContract } from "@nomicfoundation/hardhat-verify/verify";
 
 import hre from "hardhat";
 
-import { LOCK_TIME, DATAFEED_ADDR } from "./../helper-hardhat-config.ts"
+import { LOCK_TIME, DATAFEED_ADDR, CONFIRMATIONS } from "./../helper-hardhat-config.ts"
+
+import { getDataFeed, getNetworkName } from "./utils.ts"
 
 const { ethers } = await network.connect();
 
 async function main() {
-    const args = 1800n
+    let dataDeed: string;
+    try {
+        dataDeed = await getDataFeed();
+    } catch (error) {
+        console.error(error)
+        process.exit();
+    }
+
     // 返回合约实例，ethers是一个合约工厂，1800n代表一个大整数
-    const fundMe = await ethers.deployContract("FundMe", [LOCK_TIME, DATAFEED_ADDR]);
+    const fundMe = await ethers.deployContract("FundMe", [LOCK_TIME, dataDeed]);
     // ethers.getContractFactory
     await fundMe.waitForDeployment();
     console.log("FundMe deployed to:", fundMe.target);
 
-    // 获取部署的网络
-    // process.argv[0] 是 Node.js 可执行文件的路径
-    // process.argv[1] 是该脚本文件的路径
-    // 从 process.argv[2] 开始是用户传入的参数,获取从process.argv[2]传入的参数
-    let networkName: string = "hardhat";
-    const userArgs = process.argv.slice(2);
-    for (let i = 0; i < userArgs.length; i++) {
-        let arg = userArgs[i];
-        if (arg === "--network") {
-            // console.log("Network type is ",userArgs[i + 1], "\n");
-            networkName = userArgs[i + 1];
-            break;
-        }
-    }
-
+    const networkName = getNetworkName()
     if (networkName !== "hardhat") {
         // 等待区块确认，确保合约已经被区块链网络接受
         // 太小会报错，无法验证通过
-        let blockConfirmations = 3;
-        console.log("waiting %d blocks for confirmations", blockConfirmations);
-        await fundMe.deploymentTransaction()?.wait(blockConfirmations);
+        console.log("waiting %d blocks for confirmations", CONFIRMATIONS);
+        await fundMe.deploymentTransaction()?.wait(CONFIRMATIONS);
 
         // 验证合约(不需要，部署的时候就已经验证通过了)
         console.log("verifying FundMe contract ", fundMe.target);

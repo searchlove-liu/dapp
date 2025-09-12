@@ -7,3 +7,11 @@ export const INITIAL_ANSWER = 300000000000
 // 锁定时间。属于FundMe构造函数参数
 export const LOCK_TIME = 240n
 export const DATAFEED_ADDR = "0x694AA1769357215DE4FAC081bf1f309aDC325306"
+export const CONFIRMATIONS = 3
+
+// 每个网络的datafeed：https://docs.chain.link/data-feeds/price-feeds/addresses?page=1&testnetPage=1
+export const networkConfig = new Map([
+    ["sepolia", "0x694AA1769357215DE4FAC081bf1f309aDC325306"],
+    // bnbchain test
+    ["bnbChain", "0x143db3CEEfbdfe5631aDD3E50f7614B6ba708BA7"]
+])

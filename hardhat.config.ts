@@ -7,6 +7,8 @@ import { configVariable } from "hardhat/config";
 
 import hardhatVerify from "@nomicfoundation/hardhat-verify";
 
+import "mocha"
+
 // 为了解决：下列问题
 //  A network request failed. This is an error from the block explorer, 
 // not Hardhat. Error: Connect Timeout Error

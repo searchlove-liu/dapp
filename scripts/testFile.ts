@@ -1,21 +1,21 @@
-import { promises } from "dns";
+import { error } from "console";
+import { networkConfig } from "./../helper-hardhat-config.ts"
 
-async function test1(): Promise<any> {
-    // throw new Error('Something bad happened');
-    return "seccess"
-}
-
-function safeExecute(task: () => Promise<any>) {
-    try {
-        return task();
-    } catch (error) {
-        console.error(error);
-        return null;
+function returnError(): string {
+    let e: string = "alidj";
+    if (networkConfig.get(e) as undefined === undefined) {
+        let errorData = "The network  is\"" + e + "\"" + "not defined in your networks config"
+        throw new Error(errorData)
+    } else {
+        return networkConfig.get(e) as string
     }
+};
+
+try {
+    console.log("dataFeedAddr :", returnError())
+} catch (error) {
+    console.log(error)
+    process.exit();
 }
 
-async function main() {
-    const result = safeExecute(test1);
-    console.log(result);
-}
-main();                                                                                     
+console.log("the program did not exit")

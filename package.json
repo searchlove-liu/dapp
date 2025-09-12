@@ -17,8 +17,12 @@
     "ethers": "^6.15.0",
     "forge-std": "github:foundry-rs/forge-std#v1.9.4",
     "hardhat": "^3.0.3",
+    "mocha": "^11.7.2",
     "typescript": "~5.8.0",
     "undici": "^7.15.0",
     "viem": "^2.36.0"
+  },
+  "dependencies": {
+    "vim": "^0.1.0"
   }
 }
