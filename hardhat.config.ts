@@ -9,7 +9,15 @@ import { configVariable } from "hardhat/config";
 
 import hardhatVerify from "@nomicfoundation/hardhat-verify";
 
+// 参考：https://github.com/wighawag/hardhat-deploy
+// 官网：https://www.npmjs.com/package/hardhat-deploy
+// 案例：https://github.com/wighawag/template-ethereum-contracts
+// 之前没有安装好，是因为安装的其它没用包和hardhat-deploy依赖包有冲突
+// 成功之后，调用npx hardhat --help,在AVAILABLE TASKS中会显示deploy
+import HardhatDeploy from 'hardhat-deploy';
 // import "hardhat-gas-reporter"
+// import "solidity-coverage"
+// 上面不能用，版本冲突
 
 // 为了解决：下列问题
 //  A network request failed. This is an error from the block explorer, 
@@ -20,7 +28,7 @@ const proxyAgent = new ProxyAgent("http://127.0.0.1:7890");
 setGlobalDispatcher(proxyAgent);
 
 const config: HardhatUserConfig = {
-  plugins: [hardhatToolboxMochaEthers, hardhatVerify],
+  plugins: [hardhatToolboxMochaEthers, hardhatVerify, HardhatDeploy],
 
   solidity: {
     profiles: {
