@@ -68,16 +68,16 @@ async function main() {
     // console.log("Second account is %s \n", secondAccount.address);
 
     // // fund contract with frist account
-    // await fund(fristAccount);
+    await fund(fristAccount);
 
     // //  check balance of contract
-    await getBalance();
+    // await getBalance();
 
     // fund contract with second account
     // await fund(secondAccount);
 
     // getFund
-    await getFund()
+    // await getFund()
 
     //  check balance of contract
     await getBalance();

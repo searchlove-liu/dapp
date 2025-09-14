@@ -10,6 +10,11 @@ env-enc使用
 // envEnc.config();
 // console.log("deployed contract address is %s \n", process.env.DEPLOYED_CONTRACT_ADDRESS);
 
+ hardhat-gas-reporter:用于gas预测
+ yarn add hardhat-gas-reporter --dev
+ yarn安装可以解决版本冲突
+
+
 ts，引入某个包中的某个类型：
 import type { NewTaskActionFunction } from 'hardhat/types/tasks';
 
@@ -72,7 +77,7 @@ npx hardhat verify --network sepolia --build-profile production 0xxxxx  200
 200是智能合约构造函数的参数
 
 使用ethers部署合约，自动验证
-npx hardhat run scripts/fundMeDp-ethers.ts --network sepolia
+npx hardhat run --build-profile default scripts/fundMeDp-ethers.ts --network sepolia
 如果没有验证，可以使用：
 npx hardhat verify --network sepolia --build-profile default 0xxxxx  200
 200是智能合约构造函数的参数

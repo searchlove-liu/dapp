@@ -3,11 +3,13 @@ import type { HardhatUserConfig } from "hardhat/config";
 import hardhatToolboxMochaEthers from "@nomicfoundation/hardhat-toolbox-mocha-ethers";
 // import hardhatToolboxViem from "@nomicfoundation/hardhat-toolbox-viem";
 
+// import hardhatNodeTestRunner from "@nomicfoundation/hardhat-node-test-runner";
+
 import { configVariable } from "hardhat/config";
 
 import hardhatVerify from "@nomicfoundation/hardhat-verify";
 
-import "mocha"
+// import "hardhat-gas-reporter"
 
 // 为了解决：下列问题
 //  A network request failed. This is an error from the block explorer, 
@@ -19,6 +21,7 @@ setGlobalDispatcher(proxyAgent);
 
 const config: HardhatUserConfig = {
   plugins: [hardhatToolboxMochaEthers, hardhatVerify],
+
   solidity: {
     profiles: {
       default: {
@@ -36,6 +39,12 @@ const config: HardhatUserConfig = {
         },
       },
     },
+  },
+
+  test: {
+    mocha: {
+      timeout: 500000
+    }
   },
 
   networks: {

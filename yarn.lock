@@ -1017,7 +1017,7 @@
   resolved "https://registry.npmmirror.com/@nomicfoundation/edr-linux-arm64-musl/-/edr-linux-arm64-musl-0.12.0-next.5.tgz"
   integrity sha512-168VcV9HcUY6rRmZNb2wHWWQJ82BZmu4if17MnQSeqT/u77hObjx4P7rfFpcOxfnuEbP2NEgAZsA7uU2bMcRMQ==
 
-"@nomicfoundation/edr-linux-x64-gnu@0.12.0-next.5":
+"@nomicfoundation/edr-linux-x64-gnu@^0.12.0-next.5", "@nomicfoundation/edr-linux-x64-gnu@0.12.0-next.5":
   version "0.12.0-next.5"
   resolved "https://registry.npmmirror.com/@nomicfoundation/edr-linux-x64-gnu/-/edr-linux-x64-gnu-0.12.0-next.5.tgz"
   integrity sha512-C0N9zBEMGwYO5Is9dYuvM2Bl/0y1ornF6xRmnaaMOEf9y6grjC84Ip33fnySNG4nGcjHMYrS2RBC/Lm+rg4BcA==
@@ -1045,12 +1045,12 @@
     "@nomicfoundation/edr-linux-x64-musl" "0.12.0-next.5"
     "@nomicfoundation/edr-win32-x64-msvc" "0.12.0-next.5"
 
-"@nomicfoundation/hardhat-errors@^3.0.0":
-  version "3.0.0"
-  resolved "https://registry.npmmirror.com/@nomicfoundation/hardhat-errors/-/hardhat-errors-3.0.0.tgz"
-  integrity sha512-nYV5Z4Z5+xzL08GonNokPA3WbLngUB4H3XBmR9dnoLqM5ls90LmIuJdZy2dzxI0LbeG2pDT2r8wAJIBAStq1iA==
+"@nomicfoundation/hardhat-errors@^3.0.0", "@nomicfoundation/hardhat-errors@^3.0.2":
+  version "3.0.2"
+  resolved "https://registry.npmmirror.com/@nomicfoundation/hardhat-errors/-/hardhat-errors-3.0.2.tgz"
+  integrity sha512-8n4HZ0lfAFSw3SU1mrDXWslh11jH4W5MRyG9yT4d/vzx37uA3JBIzVQlnGVvE2ejl1QzqOqOxDuQqANWEzI9/w==
   dependencies:
-    "@nomicfoundation/hardhat-utils" "^3.0.0"
+    "@nomicfoundation/hardhat-utils" "^3.0.1"
 
 "@nomicfoundation/hardhat-ethers-chai-matchers@^3.0.0":
   version "3.0.0"
@@ -1063,13 +1063,13 @@
     chai-as-promised "^8.0.0"
     deep-eql "^5.0.1"
 
-"@nomicfoundation/hardhat-ethers@^4.0.0":
-  version "4.0.0"
-  resolved "https://registry.npmmirror.com/@nomicfoundation/hardhat-ethers/-/hardhat-ethers-4.0.0.tgz"
-  integrity sha512-xLu5s9BJDufI9mP2I9IZYYAmDfoSCNZsZkeu+lw2fflpnqxYmg0NROlrJrYAIwGiY3VRc/JCuh19IQDKF/S1pA==
+"@nomicfoundation/hardhat-ethers@^4.0.0", "@nomicfoundation/hardhat-ethers@^4.0.1":
+  version "4.0.1"
+  resolved "https://registry.npmmirror.com/@nomicfoundation/hardhat-ethers/-/hardhat-ethers-4.0.1.tgz"
+  integrity sha512-wjpbR4zWMh/zaCQGcBIkOLE6/nznokIFWMG5cB+HA8XJuoqC940GA/HxxM0TJnL58kkRpdkHNqjfR3AnXbBd1w==
   dependencies:
-    "@nomicfoundation/hardhat-errors" "^3.0.0"
-    "@nomicfoundation/hardhat-utils" "^3.0.0"
+    "@nomicfoundation/hardhat-errors" "^3.0.2"
+    "@nomicfoundation/hardhat-utils" "^3.0.1"
     debug "^4.3.2"
     ethereum-cryptography "^2.2.1"
     ethers "^6.14.0"
@@ -1082,21 +1082,21 @@
     "@nomicfoundation/hardhat-errors" "^3.0.0"
 
 "@nomicfoundation/hardhat-ignition-viem@^3.0.0":
-  version "3.0.1"
-  resolved "https://registry.npmmirror.com/@nomicfoundation/hardhat-ignition-viem/-/hardhat-ignition-viem-3.0.1.tgz"
-  integrity sha512-09YCIAriuQNF2MiE2A+ARb1RHQ1JA8Sdm9MyOIlQCFqVj28VTmylPYR6IjKd80PuZMs3+t6o/bWLXHNJFnIhdQ==
+  version "3.0.3"
+  resolved "https://registry.npmmirror.com/@nomicfoundation/hardhat-ignition-viem/-/hardhat-ignition-viem-3.0.3.tgz"
+  integrity sha512-kuWNxFmY6ZelJ4/dbv44QPhuJf38XvynNwGOmW7f96EJ/JnNZnN4D13Gkj9lxghynfWPg1yNHGv6CV1Y9DEDjw==
   dependencies:
-    "@nomicfoundation/hardhat-errors" "^3.0.0"
+    "@nomicfoundation/hardhat-errors" "^3.0.2"
 
-"@nomicfoundation/hardhat-ignition@^3.0.0", "@nomicfoundation/hardhat-ignition@^3.0.1":
-  version "3.0.1"
-  resolved "https://registry.npmmirror.com/@nomicfoundation/hardhat-ignition/-/hardhat-ignition-3.0.1.tgz"
-  integrity sha512-SQbDoGmAWyb9UOy65ZCXz1dwpZHQg/At5vwqVBnZQulO5M19gJ26W8+RLDDoF72aB5n4IRm04e3OLTC+TzOGyg==
+"@nomicfoundation/hardhat-ignition@^3.0.0", "@nomicfoundation/hardhat-ignition@^3.0.1", "@nomicfoundation/hardhat-ignition@^3.0.2":
+  version "3.0.3"
+  resolved "https://registry.npmmirror.com/@nomicfoundation/hardhat-ignition/-/hardhat-ignition-3.0.3.tgz"
+  integrity sha512-wFHgY+JAaIFPBxyJbrNJl7TjDmXtFod3nPDTPTMerPP+i69yk4yl3CM8nvjUzTKSACf7Ci3xfNfoqc3voeuaLQ==
   dependencies:
-    "@nomicfoundation/hardhat-errors" "^3.0.0"
-    "@nomicfoundation/hardhat-utils" "^3.0.0"
-    "@nomicfoundation/ignition-core" "^3.0.1"
-    "@nomicfoundation/ignition-ui" "^3.0.1"
+    "@nomicfoundation/hardhat-errors" "^3.0.2"
+    "@nomicfoundation/hardhat-utils" "^3.0.1"
+    "@nomicfoundation/ignition-core" "^3.0.3"
+    "@nomicfoundation/ignition-ui" "^3.0.3"
     chalk "^5.3.0"
     debug "^4.3.2"
     json5 "^2.2.3"
@@ -1116,13 +1116,13 @@
     debug "^4.3.2"
     zod "^3.23.8"
 
-"@nomicfoundation/hardhat-mocha@^3.0.0":
-  version "3.0.1"
-  resolved "https://registry.npmmirror.com/@nomicfoundation/hardhat-mocha/-/hardhat-mocha-3.0.1.tgz"
-  integrity sha512-qkQoKniAPQ4P8mbdW6kw4XKU1CyMdlgAjyKL4n3C7Me8CwtZzpQ2YSMsDlqAbl+t61r+f0+7G1dC34bn/hjaoA==
+"@nomicfoundation/hardhat-mocha@^3.0.0", "@nomicfoundation/hardhat-mocha@^3.0.2":
+  version "3.0.2"
+  resolved "https://registry.npmmirror.com/@nomicfoundation/hardhat-mocha/-/hardhat-mocha-3.0.2.tgz"
+  integrity sha512-2vyHh2mvRPVieDQs1bgaGOdY+9EcH09TwPQtJklrDEqw887YKZFaRXwgPKMswA8beqjKtQ51F1euFCHd2IFPcw==
   dependencies:
-    "@nomicfoundation/hardhat-errors" "^3.0.0"
-    "@nomicfoundation/hardhat-utils" "^3.0.0"
+    "@nomicfoundation/hardhat-errors" "^3.0.2"
+    "@nomicfoundation/hardhat-utils" "^3.0.1"
     "@nomicfoundation/hardhat-zod-utils" "^3.0.0"
     hardhat "^3.0.0"
     mocha "^11.0.0"
@@ -1146,14 +1146,14 @@
     chalk "^5.3.0"
     jest-diff "^29.7.0"
 
-"@nomicfoundation/hardhat-node-test-runner@^3.0.0":
-  version "3.0.2"
-  resolved "https://registry.npmmirror.com/@nomicfoundation/hardhat-node-test-runner/-/hardhat-node-test-runner-3.0.2.tgz"
-  integrity sha512-1cCJ/R5kMCja0tqdjFbeoLJugUNxGKATDq14KILYj0FjDZsJr3Kh1P3HiikTNSgG+pK5H2t2llVQ8ycWMXncFg==
+"@nomicfoundation/hardhat-node-test-runner@^3.0.0", "@nomicfoundation/hardhat-node-test-runner@^3.0.3":
+  version "3.0.3"
+  resolved "https://registry.npmmirror.com/@nomicfoundation/hardhat-node-test-runner/-/hardhat-node-test-runner-3.0.3.tgz"
+  integrity sha512-z6cfjSS0ZZKSVfxfhcC27KHp4YxbfX4AwHIHzmHfgwLG8jtmVo/p9LLKYd/QLWAVOWpF712n2c9NLrAqJn+Olg==
   dependencies:
-    "@nomicfoundation/hardhat-errors" "^3.0.0"
+    "@nomicfoundation/hardhat-errors" "^3.0.2"
     "@nomicfoundation/hardhat-node-test-reporter" "^3.0.0"
-    "@nomicfoundation/hardhat-utils" "^3.0.0"
+    "@nomicfoundation/hardhat-utils" "^3.0.1"
     "@nomicfoundation/hardhat-zod-utils" "^3.0.0"
     tsx "^4.19.3"
     zod "^3.23.8"
@@ -1181,10 +1181,10 @@
     typechain "^8.3.1"
     zod "^3.23.8"
 
-"@nomicfoundation/hardhat-utils@^3.0.0":
-  version "3.0.0"
-  resolved "https://registry.npmmirror.com/@nomicfoundation/hardhat-utils/-/hardhat-utils-3.0.0.tgz"
-  integrity sha512-dpzumbxM69ny/BSVd/8jquZO3wjg61e+S81DJPJwQ7naeZNai1r9gYuxT65VgKKTYZG/xKwrP36tJvB+gRtBrg==
+"@nomicfoundation/hardhat-utils@^3.0.0", "@nomicfoundation/hardhat-utils@^3.0.1", "@nomicfoundation/hardhat-utils@^3.0.2":
+  version "3.0.2"
+  resolved "https://registry.npmmirror.com/@nomicfoundation/hardhat-utils/-/hardhat-utils-3.0.2.tgz"
+  integrity sha512-d/LYe9k9W56dimt6mY6SA1SjadSKKyHZC2S+0JsSFr4BjU4SHBDaM0cKWx44JdZqBdMjLWCiRBcVaIq3X8qTAA==
   dependencies:
     "@streamparser/json-node" "^0.0.22"
     debug "^4.3.2"
@@ -1211,12 +1211,12 @@
     zod "^3.23.8"
 
 "@nomicfoundation/hardhat-viem-assertions@^3.0.0":
-  version "3.0.1"
-  resolved "https://registry.npmmirror.com/@nomicfoundation/hardhat-viem-assertions/-/hardhat-viem-assertions-3.0.1.tgz"
-  integrity sha512-WkMngGc585JVujTfFvCp9Z+BGB2HlgZKNfGDDHAffTs7uZvW8IXsT8PtoKLsggbdNUFbLhaJEP833UAVbruZVg==
+  version "3.0.2"
+  resolved "https://registry.npmmirror.com/@nomicfoundation/hardhat-viem-assertions/-/hardhat-viem-assertions-3.0.2.tgz"
+  integrity sha512-nPZD311dupKbrfNmNYM5NE4DMvotBi74B7g21LdknfRujDMdnPMUoe3GNp5qhYPYSzAeKUUfEA5e6w+uf0Eb/g==
   dependencies:
-    "@nomicfoundation/hardhat-errors" "^3.0.0"
-    "@nomicfoundation/hardhat-utils" "^3.0.0"
+    "@nomicfoundation/hardhat-errors" "^3.0.2"
+    "@nomicfoundation/hardhat-utils" "^3.0.1"
 
 "@nomicfoundation/hardhat-viem@^3.0.0":
   version "3.0.0"
@@ -1226,21 +1226,22 @@
     "@nomicfoundation/hardhat-errors" "^3.0.0"
     "@nomicfoundation/hardhat-utils" "^3.0.0"
 
-"@nomicfoundation/hardhat-zod-utils@^3.0.0":
-  version "3.0.0"
-  resolved "https://registry.npmmirror.com/@nomicfoundation/hardhat-zod-utils/-/hardhat-zod-utils-3.0.0.tgz"
-  integrity sha512-xAi+45+V82pZZ9QGDEiii0wp+SXXH/8hS7/pk7S0gOG6h29gPuE42yek8wh3Ff0M+DrsB/RKZjcezmdwH5a6mQ==
-  dependencies:
-    "@nomicfoundation/hardhat-utils" "^3.0.0"
-
-"@nomicfoundation/ignition-core@^3.0.0", "@nomicfoundation/ignition-core@^3.0.1":
+"@nomicfoundation/hardhat-zod-utils@^3.0.0", "@nomicfoundation/hardhat-zod-utils@^3.0.1":
   version "3.0.1"
-  resolved "https://registry.npmmirror.com/@nomicfoundation/ignition-core/-/ignition-core-3.0.1.tgz"
-  integrity sha512-6O0JFUSZSRLKsSO8s/QPpQmgjYVpNRmFmRneR57Dpy4Pu01YXTgNQgymSSA8aTiS/5E10rIqmx2WtDHQoOH8ng==
+  resolved "https://registry.npmmirror.com/@nomicfoundation/hardhat-zod-utils/-/hardhat-zod-utils-3.0.1.tgz"
+  integrity sha512-I6/pyYiS9p2lLkzQuedr1ScMocH+ew8l233xTi+LP92gjEiviJDxselpkzgU01MUM0t6BPpfP8yMO958LDEJVg==
+  dependencies:
+    "@nomicfoundation/hardhat-errors" "^3.0.0"
+    "@nomicfoundation/hardhat-utils" "^3.0.2"
+
+"@nomicfoundation/ignition-core@^3.0.0", "@nomicfoundation/ignition-core@^3.0.1", "@nomicfoundation/ignition-core@^3.0.2", "@nomicfoundation/ignition-core@^3.0.3":
+  version "3.0.3"
+  resolved "https://registry.npmmirror.com/@nomicfoundation/ignition-core/-/ignition-core-3.0.3.tgz"
+  integrity sha512-XlExOpCNyjLhAnfo/RaAknQ/0nYXl5+0+3Cg7T3zZAh/nEC52gecuhjG27jhIdtts2Oo78bwCsvnY2Wp0kHhpg==
   dependencies:
     "@ethersproject/address" "5.6.1"
-    "@nomicfoundation/hardhat-errors" "^3.0.0"
-    "@nomicfoundation/hardhat-utils" "^3.0.0"
+    "@nomicfoundation/hardhat-errors" "^3.0.2"
+    "@nomicfoundation/hardhat-utils" "^3.0.1"
     "@nomicfoundation/solidity-analyzer" "^0.1.1"
     cbor2 "^1.9.0"
     debug "^4.3.2"
@@ -1249,10 +1250,10 @@
     lodash-es "4.17.21"
     ndjson "2.0.0"
 
-"@nomicfoundation/ignition-ui@^3.0.1":
-  version "3.0.1"
-  resolved "https://registry.npmmirror.com/@nomicfoundation/ignition-ui/-/ignition-ui-3.0.1.tgz"
-  integrity sha512-5lBV1/8APXcjWG1pqwRgZIYOc5yUCXc9WYodLc+rGEsAE9vT5JXXehE2ONmWvZeEmTOBgekkkztor8igBq37FQ==
+"@nomicfoundation/ignition-ui@^3.0.3":
+  version "3.0.3"
+  resolved "https://registry.npmmirror.com/@nomicfoundation/ignition-ui/-/ignition-ui-3.0.3.tgz"
+  integrity sha512-9xpwKi68P4ckMucpNnoKlDei2A3wgbPAnJN8ouYxGZpPtzT0kTfDtRCPAQEGqPoQiOWAn84jojVYrJmL+RQS+A==
 
 "@nomicfoundation/solidity-analyzer-darwin-arm64@0.1.2":
   version "0.1.2"
@@ -2133,6 +2134,11 @@ eventemitter3@5.0.1:
   resolved "https://registry.npmmirror.com/eventemitter3/-/eventemitter3-5.0.1.tgz"
   integrity sha512-GWkBvjiSZK87ELrYOSESUYeVIc9mvLLf/nXalMOS5dYrgZq9o5OVkbZAVM06CVxYsCwH9BDZFPlQTlPA1j4ahA==
 
+expect.js@^0.3.1:
+  version "0.3.1"
+  resolved "https://registry.npmmirror.com/expect.js/-/expect.js-0.3.1.tgz"
+  integrity sha512-okDF/FAPEul1ZFLae4hrgpIqAeapoo5TRdcg/lD0iN9S3GWrBFIJwNezGH1DMtIz+RxU4RrFmMq7WUUvDg3J6A==
+
 expect@^30.0.0:
   version "30.1.1"
   resolved "https://registry.npmmirror.com/expect/-/expect-30.1.1.tgz"
@@ -2351,15 +2357,15 @@ graceful-fs@^4.1.11, graceful-fs@^4.1.2, graceful-fs@^4.1.5, graceful-fs@^4.1.6,
   resolved "https://registry.npmmirror.com/graceful-fs/-/graceful-fs-4.2.11.tgz"
   integrity sha512-RbJ5/jmFcNNCcDV5o9eTnBLJ/HszWV0P73bc+Ff4nS/rJj+YaS6IGyiOL0VoBYX+l1Wrl3k63h/KrH+nhJ0XvQ==
 
-hardhat@^3.0.0, hardhat@^3.0.3:
-  version "3.0.3"
-  resolved "https://registry.npmmirror.com/hardhat/-/hardhat-3.0.3.tgz"
-  integrity sha512-QQwkjc0xO+sXygcjAiwwBQAqXdhU5/FBPlXtb/DB5CuQQ60fHHbLwBK2axrwwoJcmDSEoifyXi9S+46Nw14hDg==
+hardhat@^3.0.0, hardhat@^3.0.6:
+  version "3.0.6"
+  resolved "https://registry.npmmirror.com/hardhat/-/hardhat-3.0.6.tgz"
+  integrity sha512-x/h1ZAea4cuFsl4dTxLXd5H4dicadEVzYv2ytxIuLL9AJ6gAqSre9jyJSYWxnHmevjrB9R/RMv5oqHHRCjyk4g==
   dependencies:
     "@nomicfoundation/edr" "0.12.0-next.5"
-    "@nomicfoundation/hardhat-errors" "^3.0.0"
-    "@nomicfoundation/hardhat-utils" "^3.0.0"
-    "@nomicfoundation/hardhat-zod-utils" "^3.0.0"
+    "@nomicfoundation/hardhat-errors" "^3.0.2"
+    "@nomicfoundation/hardhat-utils" "^3.0.2"
+    "@nomicfoundation/hardhat-zod-utils" "^3.0.1"
     "@nomicfoundation/solidity-analyzer" "^0.1.1"
     "@sentry/core" "^9.4.0"
     adm-zip "^0.4.16"
@@ -3679,6 +3685,11 @@ yargs@^17.7.1, yargs@^17.7.2:
     string-width "^4.2.3"
     y18n "^5.0.5"
     yargs-parser "^21.1.1"
+
+yarn@^1.22.22:
+  version "1.22.22"
+  resolved "https://registry.npmmirror.com/yarn/-/yarn-1.22.22.tgz"
+  integrity sha512-prL3kGtyG7o9Z9Sv8IPfBNrWTDmXB4Qbes8A9rEzt6wkJV8mUvoirjU0Mp3GGAU06Y0XQyA3/2/RQFVuK7MTfg==
 
 yocto-queue@^0.1.0:
   version "0.1.0"

@@ -4,8 +4,8 @@
 export const DECIMALS = 8
 export const INITIAL_ANSWER = 300000000000
 
-// 锁定时间。属于FundMe构造函数参数
-export const LOCK_TIME = 240n
+// 锁定时间，这里单位是秒。属于FundMe构造函数参数
+export const LOCK_TIME = 60n
 export const DATAFEED_ADDR = "0x694AA1769357215DE4FAC081bf1f309aDC325306"
 export const CONFIRMATIONS = 3
 

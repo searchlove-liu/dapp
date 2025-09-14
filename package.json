@@ -5,24 +5,33 @@
   "devDependencies": {
     "@chainlink/contracts": "^1.4.0",
     "@chainlink/env-enc": "^1.0.5",
+    "@nomicfoundation/edr-linux-x64-gnu": "^0.12.0-next.5",
+    "@nomicfoundation/hardhat-ethers": "^4.0.1",
+    "@nomicfoundation/hardhat-ethers-chai-matchers": "^3.0.0",
     "@nomicfoundation/hardhat-ignition": "^3.0.1",
     "@nomicfoundation/hardhat-ignition-ethers": "^3.0.1",
     "@nomicfoundation/hardhat-keystore": "^3.0.1",
+    "@nomicfoundation/hardhat-mocha": "^3.0.2",
+    "@nomicfoundation/hardhat-network-helpers": "^3.0.0",
+    "@nomicfoundation/hardhat-node-test-runner": "^3.0.3",
     "@nomicfoundation/hardhat-toolbox-mocha-ethers": "^3.0.0",
     "@nomicfoundation/hardhat-toolbox-viem": "^5.0.0",
+    "@nomicfoundation/hardhat-typechain": "^3.0.0",
     "@nomicfoundation/hardhat-verify": "^3.0.1",
     "@types/jest": "^30.0.0",
     "@types/node": "^22.18.0",
     "dotenv": "^17.2.2",
     "ethers": "^6.15.0",
+    "expect.js": "^0.3.1",
     "forge-std": "github:foundry-rs/forge-std#v1.9.4",
-    "hardhat": "^3.0.3",
+    "hardhat": "^3.0.6",
     "mocha": "^11.7.2",
     "typescript": "~5.8.0",
     "undici": "^7.15.0",
     "viem": "^2.36.0"
   },
   "dependencies": {
-    "vim": "^0.1.0"
+    "vim": "^0.1.0",
+    "yarn": "^1.22.22"
   }
 }

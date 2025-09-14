@@ -3,7 +3,8 @@ import { networkConfig } from "./../helper-hardhat-config.ts"
 import { network } from "hardhat";
 import { DECIMALS, INITIAL_ANSWER } from "./../helper-hardhat-config.ts"
 import { error } from "console";
-const { ethers } = await network.connect()
+import type { HardhatEthers } from "@nomicfoundation/hardhat-ethers/types"
+// const { ethers } = await network.connect()
 
 export function getNetworkName(): string {
     // 获取部署的网络
@@ -23,7 +24,11 @@ export function getNetworkName(): string {
     return networkName
 }
 
-export async function getDataFeed(): Promise<string> {
+// ethConnect必须传递过去，如果使用不一样的ethers，在本地网络创建的合约，将不再同一个网络
+// ethers在主调函数中的来源：
+// import { network } from "hardhat";
+// const { ethers, networkHelpers } = await network.connect();
+export async function getDataFeed(ethers: HardhatEthers): Promise<string> {
     let dataFeedAddr: string | undefined;
     let networkName = getNetworkName();
     if (networkName === "hardhat") {
