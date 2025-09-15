@@ -1,6 +1,15 @@
-import { task } from "hardhat/config";
+import type { HardhatPlugin } from 'hardhat/types/plugins';
+import { task } from 'hardhat/config';
 
-task("deploy-fundme", "deploy FundMe contract")
-    .setAction(async () => import("./fundMeDp-ethers-task.ts"));
 
-export { };
+const hardhatPlugin: HardhatPlugin = {
+    id: 'fundme-deploy',
+    tasks: [
+        task('fundme-deploy', 'Deploy contracts')
+            .setAction(() => import('./fundMeDp-ethers-task.ts'))
+            .build(),
+    ],
+    npmPackage: 'fundme-deploy',
+};
+
+export default hardhatPlugin;
