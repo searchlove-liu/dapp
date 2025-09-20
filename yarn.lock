@@ -1004,7 +1004,7 @@
     chai-as-promised "^8.0.0"
     deep-eql "^5.0.1"
 
-"@nomicfoundation/hardhat-ethers@^4.0.0":
+"@nomicfoundation/hardhat-ethers@^4.0.0", "@nomicfoundation/hardhat-ethers@^4.0.1":
   version "4.0.1"
   resolved "https://registry.npmmirror.com/@nomicfoundation/hardhat-ethers/-/hardhat-ethers-4.0.1.tgz"
   integrity sha512-wjpbR4zWMh/zaCQGcBIkOLE6/nznokIFWMG5cB+HA8XJuoqC940GA/HxxM0TJnL58kkRpdkHNqjfR3AnXbBd1w==
@@ -1175,13 +1175,6 @@
     "@nomicfoundation/hardhat-errors" "^3.0.0"
     "@nomicfoundation/hardhat-utils" "^3.0.2"
 
-"@nomicfoundation/hardhat-zod-utils@3.0.0":
-  version "3.0.0"
-  resolved "https://registry.npmmirror.com/@nomicfoundation/hardhat-zod-utils/-/hardhat-zod-utils-3.0.0.tgz"
-  integrity sha512-xAi+45+V82pZZ9QGDEiii0wp+SXXH/8hS7/pk7S0gOG6h29gPuE42yek8wh3Ff0M+DrsB/RKZjcezmdwH5a6mQ==
-  dependencies:
-    "@nomicfoundation/hardhat-utils" "^3.0.0"
-
 "@nomicfoundation/ignition-core@^3.0.0", "@nomicfoundation/ignition-core@^3.0.1", "@nomicfoundation/ignition-core@^3.0.2", "@nomicfoundation/ignition-core@^3.0.3":
   version "3.0.3"
   resolved "https://registry.npmmirror.com/@nomicfoundation/ignition-core/-/ignition-core-3.0.3.tgz"
@@ -1278,22 +1271,6 @@
   version "4.9.6"
   resolved "https://registry.npmmirror.com/@openzeppelin/contracts/-/contracts-4.9.6.tgz"
   integrity sha512-xSmezSupL+y9VkHZJGDoCBpmnB2ogM13ccaYDWqJTfS3dbuHkgjuwDFUmaFauBCboQMGB/S5UqUl2y54X99BmA==
-
-"@rocketh/deploy@^0.14.0":
-  version "0.14.0"
-  resolved "https://registry.npmmirror.com/@rocketh/deploy/-/deploy-0.14.0.tgz"
-  integrity sha512-4uBIpKchoTZ9QSxyTYYT137+nI0beOlqkh10NWwNgBrQXPpFc51pDB2cDZkgzJpJ5Bzn5hL6klaEsVfPxmAvSA==
-  dependencies:
-    named-logs "^0.3.2"
-    viem "^2.23.12"
-
-"@rocketh/read-execute@^0.14.0":
-  version "0.14.0"
-  resolved "https://registry.npmmirror.com/@rocketh/read-execute/-/read-execute-0.14.0.tgz"
-  integrity sha512-+QhG2I34kg36FklCVotZdKp5UuNlq+AfnKka75wVJigdAn3+RSheYf9yhofT8tIGa4dv6p4LE5eett2HOmfENQ==
-  dependencies:
-    named-logs "^0.3.2"
-    viem "^2.23.12"
 
 "@scroll-tech/contracts@0.1.0":
   version "0.1.0"
@@ -1405,13 +1382,6 @@
   dependencies:
     "@types/deep-eql" "*"
 
-"@types/debug@^4.1.12":
-  version "4.1.12"
-  resolved "https://registry.npmmirror.com/@types/debug/-/debug-4.1.12.tgz"
-  integrity sha512-vIChWdVG3LG1SMxEvI/AK+FWJthlrqlTu7fbrlywTkkaONwk/UAGaULXRlf8vkzFBLVm0zkMdCquhL5aOjhXPQ==
-  dependencies:
-    "@types/ms" "*"
-
 "@types/deep-eql@*":
   version "4.0.2"
   resolved "https://registry.npmmirror.com/@types/deep-eql/-/deep-eql-4.0.2.tgz"
@@ -1421,11 +1391,6 @@
   version "1.7.0"
   resolved "https://registry.npmmirror.com/@types/figlet/-/figlet-1.7.0.tgz"
   integrity sha512-KwrT7p/8Eo3Op/HBSIwGXOsTZKYiM9NpWRBJ5sVjWP/SmlS+oxxRvJht/FNAtliJvja44N3ul1yATgohnVBV0Q==
-
-"@types/ms@*":
-  version "2.1.0"
-  resolved "https://registry.npmmirror.com/@types/ms/-/ms-2.1.0.tgz"
-  integrity sha512-GsCCIZDE/p3i96vtEqx+7dBUGXrc7zeSK3wwPHIaRThS+9OhWIXRqzs4d6k1SVU8g91DrNRWxWUGhp5KXQb2VA==
 
 "@types/node@*", "@types/node@^24.4.0":
   version "24.4.0"
@@ -1861,7 +1826,7 @@ dataloader@^1.4.0:
   resolved "https://registry.npmmirror.com/dataloader/-/dataloader-1.4.0.tgz"
   integrity sha512-68s5jYdlvasItOJnCuI2Q9s4q98g0pCyL3HrcKJu8KNugUl8ahgmZYg38ysLTgQjjXX3H8CJLkAvWrclWfcalw==
 
-debug@^4.3.1, debug@^4.3.2, debug@^4.3.5, debug@^4.4.1:
+debug@^4.3.1, debug@^4.3.2, debug@^4.3.5:
   version "4.4.1"
   resolved "https://registry.npmmirror.com/debug/-/debug-4.4.1.tgz"
   integrity sha512-KcKCqiftBJcZr++7ykoDIEwSa3XWowTfNPo92BYxjXiyYEVrUQh2aLyhxBCwww+heortUFxEJYcRzosstTEBYQ==
@@ -2300,17 +2265,6 @@ graceful-fs@^4.1.11, graceful-fs@^4.1.2, graceful-fs@^4.1.5, graceful-fs@^4.1.6,
   version "4.2.11"
   resolved "https://registry.npmmirror.com/graceful-fs/-/graceful-fs-4.2.11.tgz"
   integrity sha512-RbJ5/jmFcNNCcDV5o9eTnBLJ/HszWV0P73bc+Ff4nS/rJj+YaS6IGyiOL0VoBYX+l1Wrl3k63h/KrH+nhJ0XvQ==
-
-hardhat-deploy@^2.0.0-next.45:
-  version "2.0.0-next.45"
-  resolved "https://registry.npmmirror.com/hardhat-deploy/-/hardhat-deploy-2.0.0-next.45.tgz"
-  integrity sha512-WnhhG13yNfaOXnjm7l3UBQ8nCBQh831F4cpssWSlQ56Zo+W2T5GxxKHPLhlrN4AqmDqq30VC/ZMzNjofTOb9oA==
-  dependencies:
-    "@nomicfoundation/hardhat-zod-utils" "3.0.0"
-    "@types/debug" "^4.1.12"
-    debug "^4.4.1"
-    slash "^5.1.0"
-    zod "^4.1.5"
 
 hardhat@^3.0.0, hardhat@^3.0.6:
   version "3.0.6"
@@ -3068,7 +3022,7 @@ rimraf@^2.6.3:
   dependencies:
     glob "^7.1.3"
 
-rocketh@^0.14.4, rocketh@^0.14.6:
+rocketh@^0.14.6:
   version "0.14.6"
   resolved "https://registry.npmmirror.com/rocketh/-/rocketh-0.14.6.tgz"
   integrity sha512-BO/Ag23EzQR6Vgmvffxx5k9NTta59D7pEbk1IoBaftArxshXsgLz4XBN1jPjWLEiqQEaiZpjmykUq0eUd8oXMw==
@@ -3173,11 +3127,6 @@ slash@^3.0.0:
   version "3.0.0"
   resolved "https://registry.npmmirror.com/slash/-/slash-3.0.0.tgz"
   integrity sha512-g9Q1haeby36OSStwb4ntCGGGaKsaVSjQ68fBxoQcutl5fS1vuY18H3wSt3jFyFtrkx+Kz0V1G85A4MyAdDMi2Q==
-
-slash@^5.1.0:
-  version "5.1.0"
-  resolved "https://registry.npmmirror.com/slash/-/slash-5.1.0.tgz"
-  integrity sha512-ZA6oR3T/pEyuqwMgAKT0/hAv8oAXckzbkmR0UkUosQ+Mc4RxGoJkRmwHgHufaenlyAgE1Mxgpdcrf75y6XcnDg==
 
 solady@0.0.182:
   version "0.0.182"
@@ -3612,8 +3561,3 @@ yocto-queue@^0.1.0:
   version "3.25.76"
   resolved "https://registry.npmmirror.com/zod/-/zod-3.25.76.tgz"
   integrity sha512-gzUt/qt81nXsFGKIFcC3YnfEAx5NkunCfnDlvuBSSFS02bcXu4Lmea0AFIUwbLWxWPx3d9p8S5QoaujKcNQxcQ==
-
-zod@^4.1.5:
-  version "4.1.8"
-  resolved "https://registry.npmmirror.com/zod/-/zod-4.1.8.tgz"
-  integrity sha512-5R1P+WwQqmmMIEACyzSvo4JXHY5WiAFHRMg+zBZKgKS+Q1viRa0C1hmUKtHltoIFKtIdki3pRxkmpP74jnNYHQ==

@@ -38,6 +38,9 @@ ethers参考：https://docs.ethers.org/v6/api/contract/   中BaseContract的方�
 
 编译合约：
 npx hradhat compile
+这个命令会生成artifacts文件夹，用于存放编译结果。
+pnpm compile 
+这个命令会生成generated文件夹，存放编译结果，用于hardhat-deploy插件使用。
 
 使用keystore插件保存保密值
 npx hardhat keystore set xxx

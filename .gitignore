@@ -10,6 +10,9 @@
 # pnpm deploy output
 /bundle
 
+# # Hardhat Build Artifacts
+/generated
+
 # Hardhat Build Artifacts
 /artifacts
 

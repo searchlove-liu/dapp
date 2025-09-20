@@ -5,24 +5,61 @@
   "devDependencies": {
     "@chainlink/contracts": "^1.4.0",
     "@chainlink/env-enc": "^1.0.5",
+    "@nomicfoundation/hardhat-ethers": "^4.0.1",
     "@nomicfoundation/hardhat-keystore": "^3.0.1",
     "@nomicfoundation/hardhat-network-helpers": "^3.0.0",
     "@nomicfoundation/hardhat-toolbox-mocha-ethers": "^3.0.0",
     "@nomicfoundation/hardhat-toolbox-viem": "^5.0.0",
     "@nomicfoundation/hardhat-verify": "^3.0.1",
-    "@rocketh/deploy": "^0.14.0",
-    "@rocketh/read-execute": "^0.14.0",
     "@types/node": "^24.4.0",
     "dotenv": "^17.2.2",
     "ethers": "^6.15.0",
     "hardhat": "^3.0.6",
-    "hardhat-deploy": "^2.0.0-next.45",
-    "rocketh": "^0.14.6",
     "typescript": "~5.8.0",
     "undici": "^7.15.0"
   },
   "dependencies": {
     "vim": "^0.1.0",
     "yarn": "^1.22.22"
+  },
+  "description": "This project showcases a Hardhat 3 Beta project using the native Node.js test runner (`node:test`) and the `viem` library for Ethereum interactions.",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/searchlove-liu/dapp.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/searchlove-liu/dapp/issues"
+  },
+  "homepage": "https://github.com/searchlove-liu/dapp#readme",
+  "scripts": {
+    "prepare": "set-defaults .vscode && pnpm compile",
+    "docgen": "ldenv -m hardhat pnpm run deploy hardhat --save-deployments true --skip-prompts ~~ pnpm rocketh-doc -e @@MODE --except-suffix _Implementation,_Proxy,_Router,_Route ~~ @@",
+    "local_node": "hardhat node",
+    "//compile": "this is a comment.Command of \"pnpm compile \" is equivalent with \"npx hardhat compile\",But it will creat generated of folder to save result of compile",
+    "compile": "hardhat compile",
+    "compile:watch": "as-soon -w src pnpm compile",
+    "execute": "ldenv -n HARDHAT_NETWORK -m localhost tsx @@",
+    "fork:execute": "ldenv -m localhost tsx @=HARDHAT_FORK=@@MODE @@",
+    "deploy": "pnpm compile --build-profile production && ldenv hardhat --network @@MODE deploy @@",
+    "fork:deploy": "pnpm compile && ldenv hardhat @=HARDHAT_FORK=@@MODE deploy @@",
+    "deploy:dev": "ldenv hardhat --network @@MODE deploy --skip-prompts @@",
+    "deploy:watch": "wait-on ./generated && ldenv -m localhost as-soon -w generated -w deploy pnpm run deploy:dev @@MODE @@",
+    "verify": "ldenv rocketh-verify -e @@MODE @@",
+    "test": "hardhat test",
+    "test:watch": "wait-on ./generated && as-soon -w generated -w test hardhat test --no-compile",
+    "export": "ldenv rocketh-export -e @@MODE @@",
+    "export:ts": "ldenv rocketh-export -e @@MODE --ts @@",
+    "format:check": "prettier --check .",
+    "format": "prettier --write .",
+    "export-script-data": "ldenv rocketh-export -e @@MODE --ts ./scripts/data/contracts.ts @@",
+    "stop": "zellij kill-session $npm_package_name",
+    "start": "zellij-launcher a $npm_package_name || zellij -n zellij.kdl -s $npm_package_name"
   }
 }
