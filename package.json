@@ -11,12 +11,25 @@
     "@nomicfoundation/hardhat-toolbox-mocha-ethers": "^3.0.0",
     "@nomicfoundation/hardhat-toolbox-viem": "^5.0.0",
     "@nomicfoundation/hardhat-verify": "^3.0.1",
+    "@rocketh/deploy": "^0.15.0",
+    "@rocketh/diamond": "^0.15.0",
+    "@rocketh/doc": "^0.15.0",
+    "@rocketh/export": "^0.15.0",
+    "@rocketh/proxy": "^0.15.0",
+    "@rocketh/read-execute": "^0.15.0",
+    "@rocketh/signer": "^0.15.0",
+    "@rocketh/verifier": "^0.15.0",
+    "@rocketh/viem": "^0.15.0",
     "@types/node": "^24.4.0",
     "dotenv": "^17.2.2",
     "ethers": "^6.15.0",
     "hardhat": "^3.0.6",
+    "hardhat-deploy": "2.0.0-next.46",
+    "ldenv": "0.3.12",
+    "rocketh": "^0.15.0",
     "typescript": "~5.8.0",
-    "undici": "^7.15.0"
+    "undici": "^7.15.0",
+    "viem": "2.37.5"
   },
   "dependencies": {
     "vim": "^0.1.0",
@@ -26,6 +39,10 @@
   "main": "index.js",
   "directories": {
     "test": "test"
+  },
+  "imports": {
+    "#rocketh": "./rocketh.js",
+    "#generated/*.js": "./generated/*.js"
   },
   "repository": {
     "type": "git",

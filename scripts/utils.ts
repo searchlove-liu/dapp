@@ -4,6 +4,8 @@ import { network } from "hardhat";
 import { DECIMALS, INITIAL_ANSWER } from "./../helper-hardhat-config.ts"
 import { error } from "console";
 import type { HardhatEthers } from "@nomicfoundation/hardhat-ethers/types"
+import { verifyContract } from "@nomicfoundation/hardhat-verify/verify";
+import hre from "hardhat";
 // const { ethers } = await network.connect()
 
 export function getNetworkName(): string {
@@ -49,4 +51,16 @@ export async function getDataFeed(ethers: HardhatEthers): Promise<string> {
             return dataFeedAddr;
         }
     }
+}
+
+// 验证合约
+export async function verifyFundMe(deployedAddress: string, lockTime: bigint, dataFeedAddr: string) {
+    verifyContract(
+        {
+            address: deployedAddress,
+            constructorArgs: [lockTime, dataFeedAddr],
+            provider: "etherscan", // or "blockscout" for Blockscout-compatible explorers
+        },
+        hre,
+    );
 }

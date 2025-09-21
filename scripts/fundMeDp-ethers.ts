@@ -2,20 +2,16 @@
 
 import { network } from "hardhat"
 
-import { verifyContract } from "@nomicfoundation/hardhat-verify/verify";
-
-import hre from "hardhat";
-
 import { LOCK_TIME, DATAFEED_ADDR, CONFIRMATIONS } from "./../helper-hardhat-config.ts"
 
-import { getDataFeed, getNetworkName } from "./utils.ts"
+import { getDataFeed, getNetworkName, verifyFundMe } from "./utils.ts"
 
 const { ethers } = await network.connect();
 
 async function main() {
     let dataDeed: string;
     try {
-        dataDeed = await getDataFeed();
+        dataDeed = await getDataFeed(ethers);
     } catch (error) {
         console.error(error)
         process.exit();
@@ -38,18 +34,6 @@ async function main() {
         console.log("verifying FundMe contract ", fundMe.target);
         await verifyFundMe(String(fundMe.target), LOCK_TIME, DATAFEED_ADDR);
     }
-}
-
-// 验证合约
-async function verifyFundMe(deployedAddress: string, lockTime: bigint, dataFeedAddr: string) {
-    verifyContract(
-        {
-            address: deployedAddress,
-            constructorArgs: [lockTime, dataFeedAddr],
-            provider: "etherscan", // or "blockscout" for Blockscout-compatible explorers
-        },
-        hre,
-    );
 }
 
 main().then().catch((error) => {

@@ -10,6 +10,10 @@ env-enc使用
 // envEnc.config();
 // console.log("deployed contract address is %s \n", process.env.DEPLOYED_CONTRACT_ADDRESS);
 
+目录：
+generated：使用pnpm compile 之后自动生成
+deployments：使用hardhat-deploy插件部署合约。及npx hardhat deploy 自动生成
+
  hardhat-gas-reporter:用于gas预测
  yarn add hardhat-gas-reporter --dev
  yarn安装可以解决版本冲突
@@ -53,6 +57,7 @@ npx hardhat ignition deploy ignition/modules/xxx.ts
  验证已部署合约：
  npx hardhat ignition verify chain-11155111 ----network sepolia
 
+
 使用hardhat scripts部署合约（无法验证原因：需要关键字--build-profile default）
 npx hardhat run scripts/fundMeDp-hardhatScript.ts --network sepolia
 或：
@@ -84,3 +89,6 @@ npx hardhat run --build-profile default scripts/fundMeDp-ethers.ts --network sep
 如果没有验证，可以使用：
 npx hardhat verify --network sepolia --build-profile default 0xxxxx  200
 200是智能合约构造函数的参数
+
+使用hardhat-deploy插件部署合约
+xx-deploy-xxxx.ts 函数不需要其它地方调用，也可以使用npx hardhat --network sepolia deploy进行部署合约.
