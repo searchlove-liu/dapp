@@ -1,8 +1,7 @@
 import { assert, expect } from "chai";
 import { describe, it, beforeEach } from "node:test";
 
-
-import { network } from "hardhat";
+import { network, deployments } from "hardhat";
 import { DECIMALS, INITIAL_ANSWER, LOCK_TIME, CONFIRMATIONS } from "../../helper-hardhat-config.ts"
 import type { Addressable } from "ethers"
 import type { HardhatEthersSigner } from "@nomicfoundation/hardhat-ethers/types"
@@ -27,16 +26,15 @@ const { ethers, networkHelpers } = await network.connect();
             dataFeedAddr = await getDataFeed(ethers)
 
             // get account
+            // 如果测试网是hardhatMainnet，这个地址是hardhatMainnet的地址
+            // 使用npx hardhat node启动网络后会给20个地址，这个accounts就是那20个地址，默认金额10000eth
             accounts = await ethers.getSigners();
 
             // 获取网络
             let networkName = getNetworkName()
             // 如果本地网络，不需要等待，否则等待CONFIRMATIONS个区块
             let confirmations
-            // 如果这个网络是hardhat，就给账户初始化一些钱，用于测试
             if (networkName === "hardhat") {
-                networkHelpers.setBalance(accounts[0].address, ethers.parseEther("100"));
-                networkHelpers.setBalance(accounts[1].address, ethers.parseEther("100"));
                 confirmations = 1
             } else {
                 confirmations = CONFIRMATIONS

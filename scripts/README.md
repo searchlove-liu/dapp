@@ -11,7 +11,7 @@ env-enc使用
 // console.log("deployed contract address is %s \n", process.env.DEPLOYED_CONTRACT_ADDRESS);
 
 目录：
-generated：使用pnpm compile 之后自动生成
+generated：使用pnpm compile/npx hardhat compile 之后自动生成,应该时部署hardhat-deploy之后,才会有这种效果.
 deployments：使用hardhat-deploy插件部署合约。及npx hardhat deploy 自动生成
 
  hardhat-gas-reporter:用于gas预测
@@ -41,10 +41,8 @@ plugins: [HardhatIgnitionEthersPlugin],
 ethers参考：https://docs.ethers.org/v6/api/contract/   中BaseContract的方法，返回值就是BaseContract类型。
 
 编译合约：
-npx hradhat compile
-这个命令会生成artifacts文件夹，用于存放编译结果。
-pnpm compile 
-这个命令会生成generated文件夹，存放编译结果，用于hardhat-deploy插件使用。
+pnpm compile /npx hardhat compile
+这个命令会生成generated文件夹，存放编译结果.hardhat-deploy插件部署之后,会自动可用。
 
 使用keystore插件保存保密值
 npx hardhat keystore set xxx
@@ -90,5 +88,15 @@ npx hardhat run --build-profile default scripts/fundMeDp-ethers.ts --network sep
 npx hardhat verify --network sepolia --build-profile default 0xxxxx  200
 200是智能合约构造函数的参数
 
-使用hardhat-deploy插件部署合约
-xx-deploy-xxxx.ts 函数不需要其它地方调用，也可以使用npx hardhat --network sepolia deploy进行部署合约.
+使用hardhat-deploy插件部署合约步骤:
+在本地部署：
+1.编译:pnpm compile/npx hardhat compile
+2.运行本地网络：npx hardhat node 
+3.在本地网络中部署：npx hardhat deploy --tags fundme --network localhost /pnpm run deploy  localhost --tags fundme
+ 前者更快;脚本会在deployments文件夹下生成localhost文件;
+4.执行调用合约脚本：pnpm execute localhost  scripts/fundMeDp-pludge.ts
+在sepolia部署：
+1.编译:pnpm compile/npx hardhat compile
+2.在sepolia中部署：npx hardhat deploy --tags fundme --network sepolia
+上面脚本会在deployments文件夹下生成sepolia文件
+3.执行调用合约脚本：pnpm execute sepolia  scripts/fundMeDp-pludge.ts

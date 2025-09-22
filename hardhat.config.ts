@@ -60,15 +60,25 @@ const config: HardhatUserConfig = {
   },
 
   networks: {
+    // hardhat网络，chainId=31337
     hardhatMainnet: {
       type: "edr-simulated",
       chainType: "l1",
+      // accounts: [configVariable("HARDHAT_PRIVATE_KEY"), configVariable("HARDHAT_PRIVATE_KEY2")]
     },
+    localhost: {
+      type: "http",
+      // 和上面的hardhatMainnet一个id。都是hardhat网络。只是这个需要主动启用。
+      // 并且适用npx hardhat run xxx。这个localhost默认hardhat网络，id就是31337。
+      // 但是用pnpm execute localhost xxx时,查不出这个网络的id,所以在这里手动设置.
+      chainId: 31337,
+      url: "http://127.0.0.1:8545"
+    },
+
     hardhatOp: {
       type: "edr-simulated",
       chainType: "op",
     },
-
     sepolia: {
       type: "http",
       // 通过这一标识，可以查看当前部署网络
