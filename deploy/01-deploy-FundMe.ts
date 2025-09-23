@@ -9,6 +9,8 @@ export default deployScript(
     async ({ deploy, namedAccounts, deployments }) => {
         let dataFeedAddr: EIP1193Account;
         const { deployer } = namedAccounts;
+        // 这里获取了合约地址
+        console.log("deployments.get.contractName=", deployments["FundMe"].address)
         const networkName = await getNetworkNameV2();
         // 如果是hardhat网络，则一同部署mock合约
         if (networkName === "hardhat") {

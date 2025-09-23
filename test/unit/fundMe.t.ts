@@ -1,11 +1,11 @@
 import { assert, expect } from "chai";
 import { describe, it, beforeEach } from "node:test";
 
-import { network, deployments } from "hardhat";
+import { network } from "hardhat";
 import { DECIMALS, INITIAL_ANSWER, LOCK_TIME, CONFIRMATIONS } from "../../helper-hardhat-config.ts"
 import type { Addressable } from "ethers"
 import type { HardhatEthersSigner } from "@nomicfoundation/hardhat-ethers/types"
-import { getNetworkName, getDataFeed } from "./../../scripts/utils.ts"
+import { getNetworkName, getDataFeed } from "../../scripts/utils.ts"
 import fundMe from "../../ignition/modules/fundMe.ts";
 import { equal } from "assert";
 import { json } from "stream/consumers";

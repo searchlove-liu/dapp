@@ -3,9 +3,10 @@ import { DECIMALS, INITIAL_ANSWER } from "./../helper-hardhat-config.ts"
 import type { HardhatEthers } from "@nomicfoundation/hardhat-ethers/types"
 import { verifyContract } from "@nomicfoundation/hardhat-verify/verify";
 import { artifacts, loadEnvironmentFromHardhat } from '#rocketh';
-import hre from "hardhat";
+import Hre from "hardhat";
 import { networkIdNetworkNameMap } from "../helper-hardhat-config.ts";
 import type { EIP1193Account } from "eip-1193";
+import type { HardhatRuntimeEnvironment } from "hardhat/types/hre"
 
 export function getNetworkName(): string {
     // 获取部署的网络
@@ -30,7 +31,7 @@ export async function getNetworkNameV2(): Promise<string> {
     // process.argv[0] 是 Node.js 可执行文件的路径
     // process.argv[1] 是该脚本文件的路径
     // 从 process.argv[2] 开始是用户传入的参数,获取从process.argv[2]传入的参数
-    const connection = await hre.network.connect();
+    const connection = await Hre.network.connect();
     const chainId = connection.networkConfig.chainId;
     let networkName: string | undefined;
     // console.log("chainId :", chainId);
@@ -73,11 +74,11 @@ export async function getDataFeed(ethers: HardhatEthers): Promise<string> {
     }
 }
 
-// 适用于适用hardhat-deploy部署合约脚本(不可以使用)
+// 适用于适用hardhat-deploy部署合约脚本:不可以在本地部署部署一个FundMe过程中获取已部署mock合约的地址.但可以单独调用获取已部署合约的地址
 // 使用hardhat-deploy部署fundMe合约时，同样需要在同一个运行时环境下部署fundme和mock合约
 // 也就是适用npx hardhat deploy --tags fundme  --network localhost 部署fundme,执行01-deploy-FundMe.ts,在执行这个脚本过程中
 // 不可以从外部导入其它运行时环境(import hre from "hardhat"),并使用
-export async function getDataFeedV2(): Promise<EIP1193Account> {
+export async function getDataFeedV2(hre: HardhatRuntimeEnvironment): Promise<EIP1193Account> {
     let dataFeedAddr: EIP1193Account | undefined;
     let networkName = await getNetworkNameV2();
     if (networkName === "hardhat") {
@@ -85,7 +86,7 @@ export async function getDataFeedV2(): Promise<EIP1193Account> {
         const env = await loadEnvironmentFromHardhat({ hre });
         // MyMockV3Aggregator是合约名
         const mock = env.get<typeof artifacts.MyMockV3Aggregator.abi>('MyMockV3Aggregator');
-        console.log("在本地网络部署FundMe，需要部署mock合约。已部署mock合约地址：", mock.address);
+        // console.log("在本地网络部   署FundMe，需要部署mock合约。已部署mock合约地址：", mock.address);
         return mock.address;
     } else {
         // console.log("mock contract deployment is skipped")
@@ -110,6 +111,6 @@ export async function verifyFundMe(deployedAddress: string, lockTime: bigint, da
             constructorArgs: [lockTime, dataFeedAddr],
             provider: "etherscan", // or "blockscout" for Blockscout-compatible explorers
         },
-        hre,
+        Hre,
     );
 }
