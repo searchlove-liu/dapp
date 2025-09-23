@@ -6,20 +6,18 @@ import type { EIP1193Account } from "eip-1193";
 import hre from "hardhat"
 // 此函数不需要其它地方调用，也可以使用npx hardhat  deploy --tags fundme进行执行
 export default deployScript(
-    async ({ deploy, namedAccounts, deployments }) => {
+    async ({ deploy, namedAccounts, deployments, viem, get }) => {
         let dataFeedAddr: EIP1193Account;
         const { deployer } = namedAccounts;
-        // 这里获取了合约地址
-        console.log("deployments.get.contractName=", deployments["FundMe"].address)
         const networkName = await getNetworkNameV2();
         // 如果是hardhat网络，则一同部署mock合约
         if (networkName === "hardhat") {
-            const mock = await deploy("MyMockV3Aggregator", {
-                account: deployer,
-                artifact: artifacts.MyMockV3Aggregator,
-                args: [DECIMALS, INITIAL_ANSWER],
-            });
-            dataFeedAddr = mock.address;
+            // 这里获取了合约地址(dependencies,保证了这个合约的一定会被执行),下面三种方式都可以获取mock合约地址
+            // const mockAddress = deployments["MyMockV3Aggregator"].address
+            // const mockAddress = get("MyMockV3Aggregator").address;
+            const mock = viem.getContract("MyMockV3Aggregator") //viem可以读取可读或可写合约。用于对以部署合约进行操作
+            const mockAddress = mock.address;
+            dataFeedAddr = mockAddress;
         } else {
             dataFeedAddr = DATAFEED_ADDR;
         }
@@ -33,7 +31,8 @@ export default deployScript(
         });
     },
     // finally you can pass tags and dependencies
-    { tags: ["all", "fundme"] }
+    // dependencies:["mock"],可以让在执行当前部署脚本之前，tags为mock的合约提前被部署，如果没有部署，则会执行它的部署脚本
+    { tags: ["all", "fundme"], dependencies: ["mock"] }
 );
 
 // 注:

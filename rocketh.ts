@@ -55,4 +55,5 @@ const { loadEnvironmentFromHardhat } = setupHardhatDeploy(extensions);
 // - loadAndExecuteDeployments can be used in tests to ensure deployed contracts are available there
 // - deployScript is the function used to create deploy script, see deploy/ folder
 // - loadEnvironmentFromHardhat can be used in scripts and reuse hardhat network handling without deploying the contracts
+// 具体如何使用，参考rocketh
 export { loadAndExecuteDeployments, deployScript, loadEnvironmentFromHardhat };
